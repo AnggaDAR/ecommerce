@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Home</title>
+  <link rel="icon" href="../img/wg-logo.png">
+
+  <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+  <link href="../css/style.css" rel="stylesheet" type="text/css">
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-lg">
+      <!-- <div class="row justify-content-end"> -->
+      <a class="navbar-brand logo text-center" href="index.html">WG</a>
+      <a class="navbar-brand" href="index.html">Warunggunung Seller</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse float-center" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="product.html">Product <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="cart.html">Cart <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+      </div>
+      <!-- </div> -->
+    </nav>
+  </header>
+
+  <section id="detail" class="my-4">
+    <hr>
+    <h3 class="text-secondary text-center">Add New Product</h3>
+    <hr>
+    <div class="row mx-1 justify-content-center">
+      <div class="col-md-6 col-12">
+        <form>
+          <div class="form-group">
+            <label for="name">Product Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter product name">
+          </div>
+          <div class="form-group">
+            <label for="brand">Product Brand</label>
+            <input type="text" class="form-control" id="brand" placeholder="Enter product brand">
+          </div>
+          <div class="form-group">
+            <label for="category">Product Category</label>
+            <input type="text" class="form-control" id="category" placeholder="Enter product category">
+          </div>
+          <div class="form-group">
+            <label for="description">Product Description</label>
+            <textarea class="form-control" id="description" rows="3" placeholder="Enter product description"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="stock">Product Stock</label>
+            <input type="number" class="form-control" id="stock" placeholder="Enter product stock">
+          </div>
+          <div class="form-group">
+            <label for="price">Product Price</label>
+            <input type="number" class="form-control" id="price" placeholder="Enter product price">
+          </div>
+          <div class="form-group">
+            <label for="discount">Product Discount</label>
+            <input type="number" class="form-control" id="discount" placeholder="Enter product discount">
+          </div>
+          <div class="form-group">
+            <label for="picture">Product Picture</label>
+            <textarea class="form-control" id="picture" rows="3" placeholder="Enter product description"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+
+  </section>
+  <footer class="bg-dark text-light">
+    <div class="row mx-2 p-3">
+      <marquee>Dapatkan Promo di hari-hari tertentu. Jam kerja calling center: 08.00-24.00 WIB</marquee>
+    </div>
+    <div class="row mx-2 p-3 justify-content-between">
+      <div class="col-3">
+        <h4 class="text-center">About Us</h4>
+        <p class="about-us text-justify">Warunggunung merupakan sebuah platform jual-beli perlengkapan gunung. Anda
+          dapat menjual ataupun membeli perlengkapan gunung yang anda mau.</p>
+      </div>
+      <div class="col-3">
+        <h4 class="text-center">Contact Us</h4>
+        <p class="about-us text-justify">Warunggunung merupakan sebuah platform jual-beli perlengkapan gunung. Anda
+          dapat menjual ataupun membeli perlengkapan gunung yang anda mau.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

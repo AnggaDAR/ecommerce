@@ -59,7 +59,7 @@ class CartResource(Resource):
 
             if prod.stock < args["quantity"]:
                 return {'status': 'FORBIDDEN', 'message': 'Product stock is below order quantity'}, 403 
-                
+
             buyer_id = get_jwt_claims()['user_id']
             cart = Carts(None, args['product_id'], args['quantity'], buyer_id, "pending")
             db.session.add(cart)
@@ -73,17 +73,6 @@ class CartResource(Resource):
         role = get_jwt_claims()['role']
         query = Products.query.get(product_id)
 
-        parser = reqparse.RequestParser()
-        parser.add_argument('name', location='json', required=True)
-        parser.add_argument('brand', location='json', required=True)
-        parser.add_argument('category', location='json', required=True)
-        parser.add_argument('description', location='json', required=True)
-        parser.add_argument('stock', location='json', type=int, required=True)
-        parser.add_argument('price', location='json', type=float, required=True)
-        parser.add_argument('discount', location='json', type=float, required=True)
-        parser.add_argument('url_picture', location='json', required=True)
-        args = parser.parse_args()
-
         if role != "seller":
             return {'status': 'FORBIDDEN', 'message': 'user is not a seller'}, 403
         if query is None:
@@ -91,33 +80,26 @@ class CartResource(Resource):
         if seller_id != query.seller_id:
             return {'status': 'FORBIDDEN', 'message': 'user is not owner of the product'}, 403
         
-        if args['name'] is not None: query.name = args['name']
-        if args['brand'] is not None: query.brand = args['brand']
-        if args['category'] is not None: query.category = args['category']
-        if args['description'] is not None: query.description = args['description']
-        if args['stock'] is not None: query.stock = args['stock']
-        if args['price'] is not None: query.price = args['price']
-        if args['discount'] is not None: query.discount = args['discount']
-        if args['url_picture'] is not None: query.url_picture = args['url_picture']
+        query.status = "success"
 
         db.session.commit()
         return marshal(query, Products.response_fields), 200, {'Content-Type': 'application/json'}
 
-    @jwt_required
-    def delete(self, product_id):
-        seller_id = get_jwt_claims()['user_id']
-        role = get_jwt_claims()['role']
-        query = Products.query.get(product_id)
+    # @jwt_required
+    # def delete(self, product_id):
+    #     seller_id = get_jwt_claims()['user_id']
+    #     role = get_jwt_claims()['role']
+    #     query = Products.query.get(product_id)
 
-        if role != "seller":
-            return {'status': 'FORBIDDEN', 'message': 'user is not a seller'}, 403
-        if query is None:
-            return {'status': 'NOT_FOUND', 'message': 'Product not found!'}, 404, {'Content-Type': 'application/json'}
-        if seller_id != query.seller_id:
-            return {'status': 'FORBIDDEN', 'message': 'user is not owner of the product'}, 403
+    #     if role != "seller":
+    #         return {'status': 'FORBIDDEN', 'message': 'user is not a seller'}, 403
+    #     if query is None:
+    #         return {'status': 'NOT_FOUND', 'message': 'Product not found!'}, 404, {'Content-Type': 'application/json'}
+    #     if seller_id != query.seller_id:
+    #         return {'status': 'FORBIDDEN', 'message': 'user is not owner of the product'}, 403
 
-        db.session.delete(query)
-        db.session.commit()
-        return {'status':'SUCCESS','message':'Product %s deleted succesfully' % query.name}, 200, {'Content-Type': 'application/json'}
+    #     db.session.delete(query)
+    #     db.session.commit()
+    #     return {'status':'SUCCESS','message':'Product %s deleted succesfully' % query.name}, 200, {'Content-Type': 'application/json'}
 
 api.add_resource(CartResource, '/cart', '/cart/<int:cart_id>')
