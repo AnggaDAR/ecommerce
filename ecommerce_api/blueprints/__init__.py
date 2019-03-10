@@ -60,15 +60,12 @@ from . import *
 from blueprints import db
             
 # Call Blueprint
-# from blueprints.penerbit.resources import bp_penerbit
 from blueprints.user.resources import bp_user
-# from blueprints.public.resources import bp_public
-# from blueprints.internal.resources import bp_internal
+from blueprints.product.resources import bp_product
 from blueprints.login import bp_login
 
-# app.register_blueprint(bp_penerbit, url_prefix='/penerbit')
 app.register_blueprint(bp_user)
-# app.register_blueprint(bp_public, url_prefix='/public')
+app.register_blueprint(bp_product)
 # app.register_blueprint(bp_internal, url_prefix='/internal')
 app.register_blueprint(bp_login)
 db.create_all()

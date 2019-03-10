@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Home</title>
+  <link rel="icon" href="img/wg-logo.png">
+
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-lg">
+      <!-- <div class="row justify-content-end"> -->
+      <a class="navbar-brand logo text-center" href="index.html">WG</a>
+      <a class="navbar-brand" href="index.html">Warunggunung</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse float-center" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategory" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Categories
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownCategory">
+              <a class="dropdown-item" target="_blank" href="showbycategory.html">Backpack</a>
+              <a class="dropdown-item" target="_blank" href="showbycategory.html">Apparel</a>
+              <a class="dropdown-item" target="_blank" href="showbycategory.html">Footwear</a>
+              <a class="dropdown-item" target="_blank" href="showbycategory.html">Accesories</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBrand" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Brands
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownBrand">
+              <a class="dropdown-item" target="_blank" href="showbybrand.1.html">Eiger</a>
+              <a class="dropdown-item" target="_blank" href="showbybrand.2.html">Consina</a>
+              <a class="dropdown-item" target="_blank" href="showbybrand.3.html">ARei</a>
+            </div>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="showcart.html">Cart <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="login.html">Login <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+      <!-- </div> -->
+    </nav>
+  </header>
+
+  <section id="detail" class="my-4">
+    <hr>
+    <h3 class="text-secondary text-center">Your Cart</h3>
+    <hr>
+    <div class="row mx-1 justify-content-center">
+      <div class="col-lg-8 col-md-5 col-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Product Name</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td><img src="img/eiger-rhinos.jpg" class="card-img" alt="Backpack"> Eiger Rhinos</td>
+              <td>3</td>
+              <td>Pending</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td><img src="img/consina-alpinist.jpg" class="card-img" alt="Backpack"> Consina Alpinist</td>
+              <td>3</td>
+              <td>Pending</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td><img src="img/arei-malawi.jpg" class="card-img" alt="Backpack"> Arei Malawi</td>
+              <td>3</td>
+              <td>Pending</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </section>
+  <footer class="bg-dark text-light">
+    <div class="row mx-2 p-3">
+      <marquee>Dapatkan Promo di hari-hari tertentu. Jam kerja calling center: 08.00-24.00 WIB</marquee>
+    </div>
+    <div class="row mx-2 p-3 justify-content-between">
+      <div class="col-3">
+        <h4 class="text-center">About Us</h4>
+        <p class="about-us text-justify">Warunggunung merupakan sebuah platform jual-beli perlengkapan gunung. Anda
+          dapat menjual ataupun membeli perlengkapan gunung yang anda mau.</p>
+      </div>
+      <div class="col-3">
+        <h4 class="text-center">Contact Us</h4>
+        <p class="about-us text-justify">Warunggunung merupakan sebuah platform jual-beli perlengkapan gunung. Anda
+          dapat menjual ataupun membeli perlengkapan gunung yang anda mau.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

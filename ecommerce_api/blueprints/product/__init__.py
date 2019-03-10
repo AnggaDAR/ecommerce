@@ -6,11 +6,12 @@ from flask_restful import fields
 class Products(db.Model):
 
     __tablename__ = "product"
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(200))
     brand = db.Column(db.String(200))
     category = db.Column(db.String(200))
-    stock = db.Column(db.Integer(200))
+    description = db.Column(db.Text)
+    stock = db.Column(db.Integer)
     price = db.Column(db.Float)
     discount = db.Column(db.Float)
     url_picture = db.Column(db.String(255))
@@ -21,6 +22,7 @@ class Products(db.Model):
         'name': fields.String,
         'brand': fields.String,
         'category': fields.String,
+        'description': fields.String,
         'stock': fields.Integer,
         'price': fields.Float,
         'discount': fields.Float,
@@ -28,11 +30,12 @@ class Products(db.Model):
         'seller_id': fields.Integer,
     }
 
-    def __init__(self, id, name, brand, category, stock, price, discount, url_picture, seller_id):
+    def __init__(self, id, name, brand, category, description, stock, price, discount, url_picture, seller_id):
         self.id = id
         self.name = name
         self.brand = brand
         self.category = category
+        self.description = description
         self.stock = stock
         self.price = price
         self.discount = discount

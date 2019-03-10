@@ -1,0 +1,89 @@
+@font-face {
+    font-family: 'bebas-neue';
+    src: url('/static/fonts/BebasNeue-Regular.ttf'), format("truetype");
+    src: local(''), format("truetype");
+}
+
+body {
+    font-family: 'Allerta Stencil', serif;
+}
+
+body.login {
+    background: url("../img/bg-login.jpg");
+}
+
+
+a.navbar-brand {
+    /* font-family: 'Allerta Stencil', serif; */
+    font-size: 24px;
+}
+
+a.navbar-brand.logo {
+    height: 50px;
+    width: 50px;
+    font-family: 'Lobster', serif;
+    font-size: 24px;
+    border: 2px dashed #ffffff;
+    border-radius: 50%;
+}
+
+li.nav-item a {
+    font-family: 'Allerta Stencil', serif;
+    font-size: 18px;
+}
+
+
+/* .thumbnail {
+    overflow-y: scroll;
+} */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* .carousel-inner {
+    max-height: 300px;
+} */
+
+section {
+    margin-top: 65px;
+}
+
+.card.category,
+.card.brand {
+    border: none;
+}
+
+.card.brand img {
+    max-height: 150px;
+    width: auto;
+}
+
+h3.card-title a,
+h5.card-title a {
+    color: black;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+h3.card-title a:hover,
+h5.card-title a:hover {
+    transition-delay: 100ms;
+    color: rgb(80, 90, 90);
+    text-decoration: none;
+}
+
+section#detail {
+    padding-top: 30px;
+}
+
+.about-us {
+    font-size: 16px;
+}
+
+td img {
+    max-width: 50px;
+}
+
+body.login .row .col{
+    background-color: white;
+}

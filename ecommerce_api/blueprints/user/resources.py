@@ -5,6 +5,7 @@ from flask_restful import Api, Resource, reqparse, marshal
 from flask_jwt_extended import jwt_required, get_jwt_claims
 from . import *
 from blueprints import db
+from blueprints.user import Users
 
 bp_user = Blueprint('user', __name__)
 api = Api(bp_user)
@@ -62,6 +63,8 @@ class SellerResource(Resource):
 
         if query is None:
             return {'status': 'NOT_FOUND', 'message': 'User not found!'}, 404, {'Content-Type': 'application/json'}
+        if query.role != "seller":
+            return {'status': 'FORBIDDEN', 'message': 'user is not a seller'}, 403
 
         if args['user_name'] is not None: 
             check_users = Users.query.filter_by(user_name = args['user_name']).first()
@@ -84,10 +87,12 @@ class SellerResource(Resource):
 
         if query is None:
             return {'status': 'NOT_FOUND', 'message': 'User not found!'}, 404, {'Content-Type': 'application/json'}
-        else:
-            db.session.delete(query)
-            db.session.commit()
-            return {'status':'SUCCESS','message':'User %s deleted succesfully' % query.user_name}, 200, {'Content-Type': 'application/json'}
+        if query.role != "seller":
+            return {'status': 'FORBIDDEN', 'message': 'user is not a seller'}, 403
+
+        db.session.delete(query)
+        db.session.commit()
+        return {'status':'SUCCESS','message':'User %s deleted succesfully' % query.user_name}, 200, {'Content-Type': 'application/json'}
 
 class BuyerResource(Resource):
 
@@ -97,6 +102,9 @@ class BuyerResource(Resource):
         query = Users.query.get(id)
         if query is None:
             return {'status': 'NOT_FOUND', 'message': 'User not found!'}, 404, {'Content-Type': 'application/json'}
+        if query.role != "buyer":
+            return {'status': 'FORBIDDEN', 'message': 'user is not a buyer'}, 403
+
         return marshal(query, Users.response_fields), 200, {'Content-Type': 'application/json'}
     
     def post(self):
@@ -139,6 +147,8 @@ class BuyerResource(Resource):
 
         if query is None:
             return {'status': 'NOT_FOUND', 'message': 'User not found!'}, 404, {'Content-Type': 'application/json'}
+        if query.role != "buyer":
+            return {'status': 'FORBIDDEN', 'message': 'user is not a buyer'}, 403
 
         if args['user_name'] is not None: 
             check_users = Users.query.filter_by(user_name = args['user_name']).first()
@@ -161,10 +171,12 @@ class BuyerResource(Resource):
 
         if query is None:
             return {'status': 'NOT_FOUND', 'message': 'User not found!'}, 404, {'Content-Type': 'application/json'}
-        else:
-            db.session.delete(query)
-            db.session.commit()
-            return {'status':'SUCCESS','message':'User %s deleted succesfully' % query.user_name}, 200, {'Content-Type': 'application/json'}
+        if query.role != "buyer":
+            return {'status': 'FORBIDDEN', 'message': 'user is not a buyer'}, 403
+            
+        db.session.delete(query)
+        db.session.commit()
+        return {'status':'SUCCESS','message':'User %s deleted succesfully' % query.user_name}, 200, {'Content-Type': 'application/json'}
 
 api.add_resource(SellerResource, '/seller')
 api.add_resource(BuyerResource, '/buyer')
